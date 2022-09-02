@@ -11,6 +11,9 @@
     }
     h1 {
         padding: 16px 0 15.43px;
+        @include mobile {
+            margin: 0 auto;
+        }
         a {
             background-image: url(../images/logo-white.png);
             background-size: cover;
@@ -18,13 +21,13 @@
             height: 48.57px;
             @include hide-text
         }
-        @include mobile {
-            margin: 0 auto;
-        }
     }
     .nav-bar {
-        justify-content: space-between;
-        ul {
+        @include mobile {
+            flex-wrap: wrap;
+            padding: 0;
+        }
+        .nav-bar-list {
             @include mobile {
                 flex-wrap: wrap;
                 width: 100%;
@@ -32,7 +35,6 @@
             }
         }
         .nav-bar-item {
-            // margin: 25px 0 25px 64px;
             margin-left: 64px;
             font-size: 20px;
             @include mobile {
@@ -44,19 +46,14 @@
             }
         }
         .nav-bar-item-link {
-            text-decoration: none;
             color: $main-color-white;
             padding: 25px 0;
             @include mobile {
                 padding: 12px 0;
             }
         &:hover {
-            text-decoration: underline;
+            @include nav-link-hover
         }
-        }
-        @include mobile {
-            flex-wrap: wrap;
-            padding: 0;
         }
     }
 }
@@ -66,9 +63,17 @@
 
 .footer {
     background: $main-color-red;
-    padding-top: 48px;
+    .footer-area {
+        padding-top: 48px;
+        @include tablet {
+            padding-left: 36px;
+            padding-right: 36px;
+        }
+        @include mobile {
+            padding: 24px 14px;
+        }
+    }
     .copyright {
-        justify-content: space-between;
         padding: 32px 0;
         color: $main-color-white;
         font-family: $font-style-sub;
@@ -88,7 +93,6 @@
                 margin-left: 0;
             }
             .copyright-item-link {
-                text-decoration: none;
                 color: $main-color-white;
                 &:hover {
                     text-decoration: underline;
@@ -96,23 +100,14 @@
             }
         }
     }
-    @include tablet {
-        padding-left: 36px;
-        padding-right: 36px;
-    }
-    @include mobile {
-        padding: 24px 14px;
-    }
 }
 .footer-link {
-    justify-content: space-between;
     margin-bottom: 33px;
     border-bottom: 1px solid $main-color-white;
     @include mobile {
         margin-bottom: 16px;
     }
     .nav {
-        justify-content: space-between;
         font-size: 16px;
         margin-bottom: 24px;
         @include mobile {
@@ -122,11 +117,10 @@
             padding: 12px 0;
             margin-right: 48px;
             .nav-item-link {
-                text-decoration: none;
                 color: $main-color-white;
             }
             &:hover {
-                text-decoration: underline;
+                @include nav-link-hover
             }
         }
     }
@@ -136,7 +130,6 @@
             padding-bottom: 24px;
         }
         .contact-link {
-            text-decoration: none;
             color: $main-color-white;
             font-size: 36px;
             &:hover {
@@ -157,7 +150,6 @@
         }
     }
     .social {
-        justify-content: space-between;
         width: 176px;
         @include tablet {
             width: 152px;
@@ -169,7 +161,8 @@
             width: 48px;
             height: 48px;
             &:hover {
-                transform: scale(1.1);
+                transform: scale(1.2);
+                transition: 0.5s;
             }
             @include tablet {
                 width: 40px;
