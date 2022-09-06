@@ -1,0 +1,14 @@
+.qna {
+    @include tablet {
+        padding: 80px 36px 48px 36px;
+    }
+    @include mobile {
+        padding: 40px 14px 32px 14px;
+    }
+    .qna-title {
+        border-left: 8px solid $sub-color-red;
+        @include mobile {
+            font-size: 24px;
+        }
+    }
+}
